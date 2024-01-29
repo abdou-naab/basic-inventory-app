@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}, a very basic inventory management app developed @ "The Odin Project".
+  br
+  p the inventory has the following records count:
+  ul 
+    li #[strong Categories:] !{category_count}
+    li #[strong Items:] !{item_count}
+  hr
+  ul.two_elem_in_row
+    li
+      a(href='/categories/create') Create new category
+    li
+      a(href='/items/create') Create new item
+    

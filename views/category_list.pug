@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1= title 
+
+    if category_list.length 
+        ul.list 
+            each c in category_list 
+                li 
+                    a(href=c.url) #{c.name}
+    else 
+        p There is no categories.
+
+    hr
+    ul.two_elem_in_row
+        li
+        a(href='/categories/create') Create new category

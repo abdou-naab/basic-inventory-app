@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 #{title}
+  .form-container
+    form(method='POST')
+      div
+        label(for='name') Category:
+        input#name(type='text', placeholder='Books, Tools...' name='name' required value=(undefined===category ? '' : category.name) )
+        label(for="desc") Description
+        input#desc(type="text" , name="description" ,cols="30", rows="10", placeholder="Category description...", required, value=(undefined===category ? '' : category.description) ) 
+      button(type='submit') Submit
+
+    if errors
+      ul.err
+        for error in errors
+          li!= error.msg

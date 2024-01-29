@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Category: #{title}
+  p #{category.description}
+  br
+  div
+    h4 Items
+    if category.items.length
+      dl
+        each item in category.items
+          div
+            a(href=item.url) #{item.name}
+            p number in stock: #{item.nis}
+            hr
+    else
+      p No items in this category yet.
+  div.two_elem_in_row
+    p.hover
+      a(href=category.url+'/update') Update category 
+    p.hover
+      a(href=category.url+'/delete') Delete category
+    

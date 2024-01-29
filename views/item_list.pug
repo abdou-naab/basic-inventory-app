@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1= title 
+
+    if item_list.length 
+        ul.list 
+            each i in item_list 
+                li 
+                    a(href=i.url) #{i.name}
+    else 
+        p There is no items.
+
+    hr
+    ul.two_elem_in_row
+        li
+        a(href='/items/create') Create new item

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h1 Item: #{title} 
+  p #{item.description}
+  p this item is from #{item.category.name} category
+  br
+  div
+    h4 Infos about the item:
+    p Number in stock: #{item.nis} 
+    p Date added: #{item.date_added} 
+    if item.price != 0
+        p Price: #{item.price} DA 
+    else
+        p Price: FREE 
+  hr
+  div.two_elem_in_row
+    p.hover
+      a(href=item.url+'/update') Update item 
+    p.hover
+      a(href=item.url+'/delete') Delete item
+    

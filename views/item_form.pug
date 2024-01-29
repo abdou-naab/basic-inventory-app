@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  h1= title
+  .form-container
+    form(method='POST')
+      div 
+        label(for='name') Name:
+        input#name(type='text', placeholder='Name of item' name='name' required value=(undefined==item ? '' : item.name) )
+      div 
+        label(for='description') Description
+        input#description(cols="30", rows="10", type='text', placeholder='Enter a description if you like' name='description'  value=(undefined==item ? '' : item.description) )
+      div
+        label(for='category') Category:
+        select#category(name='category' required)
+          option(value='') --Please select a category--
+          for category in categories
+            if item
+              if category._id.toString()===item.category._id.toString()
+                option(value=category._id selected) #{category.name}
+              else
+                option(value=category._id) #{category.name}
+            else
+              option(value=category._id) #{category.name}
+      div 
+        label(for='nis') Number in stock:
+        input#nis(type='number', placeholder='Number in stock' name='nis' required value=(undefined==item ? '' : item.nis) )
+      div 
+        label(for='price') price:
+        input#price(type='number', placeholder='price' name='price'  value=(undefined==item ? '' : item.price) )
+      div
+        label(for='d_added') Date Added:
+        input#d_added(type='date' name='d_added' value=(undefined===item ? today : item.d_added_yyyy_mm_dd) )
+      button.btn.btn-primary(type='submit') Submit
+
+      if errors 
+        ul.err 
+          for e in errors
+            li!= e.msg

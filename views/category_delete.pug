@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{category.name}
+
+  if category_items.length
+
+    p #[strong Delete the following items before attempting to delete this Category.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Items
+      ul
+        each item in category_items
+          li
+            a(href=item.url) #{item.name}
+            p #{item.description}
+
+  else
+    p Do you really want to delete this Category?
+
+    form(method='POST')
+      div
+        label(for='pass') Password:
+        input(type='password', placeholder='password to delete category' name='pass' required )
+      div
+        input(type='hidden', name='category_id', value=category._id )
+      div 
+        if errors 
+          ul.err
+            for e in errors
+              li!= e.msg
+      button(type='submit') Delete
