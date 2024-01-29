@@ -86,10 +86,10 @@ form input {
   padding-left: 6px;
 }
 button,
-p.hover a {
+.hover a {
   align-self: center;
   font-family: unset;
-  font-size: 1.3rem;
+  font-size: 1.17rem;
   border: 2px solid whitesmoke;
   border-radius: 8px;
   cursor: pointer;
@@ -97,11 +97,11 @@ p.hover a {
   padding: 0.4em 1em;
 }
 button:hover,
-p.hover:hover {
+.hover:hover {
   transform: scale(0.95);
 }
 button:active,
-p.hover:active {
+.hover:active {
   background-color: white;
   color: #00b7ff;
   border: 2px solid #00b7ff;
