@@ -106,3 +106,13 @@ button:active,
   color: #00b7ff;
   border: 2px solid #00b7ff;
 }
+
+@media (max-width: 450px) {
+  body {
+    padding: 8px;
+    margin: 0;
+  }
+  .form-container {
+    padding: 0.6em;
+  }
+}
